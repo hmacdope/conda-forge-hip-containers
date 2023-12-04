@@ -1,7 +1,6 @@
 FROM condaforge/linux-anvil-cos7-x86_64
 LABEL maintainer=hugo.macdermott@choderlab.org
 
-USER root
 
 ARG ROCM_VERSION=5.7.1
 ARG AMDGPU_VERSION=5.7.1
@@ -93,6 +92,3 @@ ENV PERL5LIB=/opt/rh/devtoolset-7/root//usr/lib64/perl5/vendor_perl:/opt/rh/devt
 ENV LD_LIBRARY_PATH=/opt/rocm/lib:/usr/local/lib:/opt/rh/devtoolset-7/root$rpmlibdir$rpmlibdir32${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
 ENV PYTHONPATH=/opt/rh/devtoolset-7/root/usr/lib64/python$pythonvers/site-packages:/opt/rh/devtoolset-7/root/usr/lib/python$pythonvers/
 ENV LDFLAGS="-Wl,-rpath=/opt/rh/devtoolset-7/root/usr/lib64 -Wl,-rpath=/opt/rh/devtoolset-7/root/usr/lib"
-
-# change perms on /opt/rocm
-# RUN chmod -R a+rwx /opt/rocm
