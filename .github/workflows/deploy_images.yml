@@ -1,4 +1,5 @@
 # Configures this workflow to run every time a change is pushed to the branch called `main`.
+name: deploy_images
 on:
   push:
     branches: ['main']
