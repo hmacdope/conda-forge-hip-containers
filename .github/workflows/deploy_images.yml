@@ -19,6 +19,8 @@ jobs:
       contents: read
       packages: write
     steps:
+      - name: Maximize build space
+        uses: AdityaGarg8/remove-unwanted-software@v2
 
       - name: Checkout repository
         uses: actions/checkout@v4
