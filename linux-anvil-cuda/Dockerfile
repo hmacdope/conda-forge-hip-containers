@@ -1,7 +1,7 @@
-FROM condaforge/linux-anvil-cuda
+FROM condaforge/linux-anvil-cuda:11.2
 LABEL maintainer=hugo.macdermott@choderlab.org
 LABEL version=0.1
-LABEL name=conda-forge-linux-anvil-rocm
+LABEL name=conda-forge-linux-anvil-cuda-rocm
 
 
 ARG ROCM_VERSION=5.7.1
