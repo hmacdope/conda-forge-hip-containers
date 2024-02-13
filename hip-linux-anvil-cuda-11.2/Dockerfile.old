@@ -1,0 +1,21 @@
+FROM condaforge/linux-anvil-cuda:11.2
+LABEL maintainer=hugo.macdermott@choderlab.org
+LABEL version=0.1
+LABEL name=conda-forge-linux-anvil-cuda-rocm
+
+
+# Install ROCm
+# RUN sudo yum install -y https://repo.radeon.com/amdgpu-install/5.7/rhel/8.7/amdgpu-install-5.7.50700-1.el8.noarch.rpm
+# RUN sudo amdgpu-install -y
+
+ARG ROCM_VERSION=5.7
+
+COPY amd_repo_info.txt /etc/yum.repos.d/amdgpu.repo
+
+RUN sudo yum clean all
+
+RUN sudo yum update -y
+
+RUN sudo yum install rocm-hip-sdk
+
+RUN sudo yum clean all
